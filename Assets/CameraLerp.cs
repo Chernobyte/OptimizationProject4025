@@ -21,6 +21,7 @@ public class CameraLerp : MonoBehaviour {
 	void OnEnable()
 	{
 		lerpFrac = 0f;
+		startMark = Camera.main.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +32,9 @@ public class CameraLerp : MonoBehaviour {
 			Debug.Log ("Lerp Fraction : " + lerpFrac);
 			distCovered = (Time.time - startTime) * speed;
 			lerpFrac = distCovered / lerpLength;
-			Camera.main.transform.position = Vector3.Lerp (startMark, endMark, lerpFrac);
+			Debug.Log(Vector3.Lerp (startMark, endMark, lerpFrac).ToString());
+			if(!float.IsNaN(Vector3.Lerp (startMark, endMark, lerpFrac).x))
+				Camera.main.transform.position = Vector3.Lerp (startMark, endMark, lerpFrac);
 		}
 	}
 }
