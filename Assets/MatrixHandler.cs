@@ -99,7 +99,7 @@ public class MatrixHandler : MonoBehaviour {
 
 		for (int i = 0; i < dimension; i++) 
 		{
-			tmp1 = tmp1 + matrix[0,i] + "y" + i;
+			tmp1 = tmp1 + (matrix[1,i] >= 0 ? "+" : "") + matrix[0,i] + "y" + i;
 		}
 		for (int i = 0; i < dimension; i++) 
 		{
